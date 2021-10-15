@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 3004"
   },
   "dependencies": {
     "chart.js": "^3.5.1",
