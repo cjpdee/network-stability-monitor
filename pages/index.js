@@ -206,7 +206,7 @@ export default function Home() {
           ref={viewboxRef}
           className="w-full h-full overflow-x-scroll overflow-y-hidden max-h-screen pl-2"
         >
-          <div className="w-full">
+          <div className="w-full cursor-pointer">
             <Graph
               dataType={dataType}
               format={format}
