@@ -14,7 +14,8 @@
     "react": "^17.0.2",
     "react-chartjs-2": "^3.0.5",
     "react-dom": "^17.0.2",
-    "react-range": "^1.8.11"
+    "react-range": "^1.8.11",
+    "use-drag-scroll": "^1.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",

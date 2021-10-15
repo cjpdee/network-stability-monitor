@@ -1,17 +1,16 @@
 import Head from "next/head";
-import { useState, useReducer } from "react";
+import { useState, useReducer, useRef } from "react";
 import { Range } from "react-range";
 import Graph from "../components/Graph";
+import useDragScroll from "use-drag-scroll";
 
 /**
  * TODOs / Nice to have
  * - start/stop button
  * - drag left and right
- * - status window - ping, up, down
- * - select data - ping/down/up
- * - (if up/down) select format
  * - hover mouse over graph for exact measure
  * - tips on how to improve internet connection/stability
+ * - min/max/avg display
  */
 
 const buttonStyle =
@@ -29,6 +28,11 @@ export default function Home() {
   const [dataType, setDataType] = useState("ping");
   const [format, setFormat] = useState("mbps");
   const [networkData, dispatch] = useReducer(reducer, []); // move to main component
+  const viewboxRef = useRef(null);
+
+  useDragScroll({
+    sliderRef: viewboxRef,
+  });
 
   return (
     <div className="min-h-screen max-h-screen w-full overflow-hidden bg-black">
@@ -39,6 +43,13 @@ export default function Home() {
           name="description"
           content="Network stability monitor, online free "
         />
+        <style>
+          {`
+            ::-webkit-scrollbar {
+              display: none;
+            }
+        `}
+        </style>
       </Head>
 
       <main className="max-h-screen h-screen w-auto flex">
@@ -172,13 +183,20 @@ export default function Home() {
             </div>
           </div>
           <div className="">
-            <button className={buttonStyle + " w-full"}>
+            {/* TODO: link to correct article */}
+            <a
+              href="/posts/how-to-improve-wifi-stability"
+              className={buttonStyle + " block text-center w-full"}
+            >
               How to improve wifi stability
-            </button>
+            </a>
           </div>
         </nav>
-        <div className="w-full h-full overflow-x-auto">
-          <div className="w-full ">
+        <div
+          ref={viewboxRef}
+          className="w-full h-full overflow-x-scroll overflow-y-hidden max-h-screen pl-2"
+        >
+          <div className="w-full">
             <Graph
               dataType={dataType}
               format={format}

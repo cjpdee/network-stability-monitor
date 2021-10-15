@@ -3,7 +3,7 @@ import { useEffect, useReducer, useRef, useState } from "react";
 import { getNetworkDatum } from "../util/network";
 
 const LABEL_WIDTH = 35;
-const BAR_WIDTH = 12;
+const BAR_WIDTH = 10;
 
 export default function Graph({ dataType, format, networkData, dispatch }) {
   const chartRef = useRef(undefined);
@@ -26,7 +26,6 @@ export default function Graph({ dataType, format, networkData, dispatch }) {
           .slice()
           .reverse()
           .map((datum) => {
-            console.log("datum", datum);
             return dataType === "ping" ? datum.ping : datum[dataType][format];
           }),
         backgroundColor: networkData
@@ -35,12 +34,12 @@ export default function Graph({ dataType, format, networkData, dispatch }) {
           .map((datum) => {
             switch (dataType) {
               case "ping":
-                return datum.ping > 100 ? "red" : "green";
+                return datum.ping > 60 ? "red" : "green";
               case "up":
-                // return "green";
+                return "green";
                 return datum.up[format] > 100 ? "red" : "green";
               case "down":
-                // return "green";
+                return "green";
                 return datum.down[format] > 100 ? "red" : "green";
             }
           }),
@@ -51,14 +50,14 @@ export default function Graph({ dataType, format, networkData, dispatch }) {
   return (
     <Bar
       ref={chartRef}
-      className="overflow-hidden"
+      className="overflow-hidden h-screen"
       data={formatData(networkData)}
       legend={{ display: false }}
       options={{
         responsive: true,
         maintainAspectRatio: false,
         animation: { duration: 0 },
-        barPercentage: 1,
+        barPercentage: 0.9,
         categoryPercentage: 1,
 
         plugins: {
@@ -67,8 +66,21 @@ export default function Graph({ dataType, format, networkData, dispatch }) {
           },
         },
 
+        layout: {
+          padding: {
+            bottom: 0,
+          },
+        },
+
         scales: {
           y: {
+            afterSetDimensions: function (axes) {
+              axes.maxWidth = 35;
+              axes.width = 35;
+            },
+            ticks: {
+              color: "white",
+            },
             min: 0,
             max:
               dataType === "ping"
@@ -86,6 +98,9 @@ export default function Graph({ dataType, format, networkData, dispatch }) {
             barPercentage: 1.0,
             grid: {
               offset: false,
+            },
+            ticks: {
+              display: false,
             },
           },
         },

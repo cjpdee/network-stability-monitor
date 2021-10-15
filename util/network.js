@@ -33,7 +33,7 @@ export const getNetworkDatum = async () => {
 
   return {
     ...speeds,
-    ping,
+    ping: Math.round(ping * 0.5),
     time,
   };
 };
