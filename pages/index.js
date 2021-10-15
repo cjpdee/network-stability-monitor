@@ -1,8 +1,9 @@
 import Head from "next/head";
-import { useState, useReducer, useRef } from "react";
+import { useState, useReducer, useRef, useEffect } from "react";
 import { Range } from "react-range";
 import Graph from "../components/Graph";
 import useDragScroll from "use-drag-scroll";
+import ReactGA from "react-ga";
 
 /**
  * TODOs / Nice to have
@@ -33,6 +34,15 @@ export default function Home() {
   useDragScroll({
     sliderRef: viewboxRef,
   });
+
+  useEffect(() => {
+    ReactGA.initialize(process.env.NEXT_PUBLIC_GA_CODE, {
+      debug: true,
+      gaOptions: {
+        siteSpeedSampleRate: 100,
+      },
+    });
+  }, []);
 
   return (
     <div className="min-h-screen max-h-screen w-full overflow-hidden bg-black">
