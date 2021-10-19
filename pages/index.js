@@ -60,6 +60,11 @@ export default function Home() {
             }
         `}
         </style>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3617395294405861"
+          crossorigin="anonymous"
+        ></script>
       </Head>
 
       <main className="max-h-screen h-screen w-auto flex">
