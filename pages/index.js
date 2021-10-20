@@ -42,6 +42,7 @@ export default function Home() {
         siteSpeedSampleRate: 100,
       },
     });
+    ReactGA.pageview("/");
   }, []);
 
   return (
@@ -63,7 +64,7 @@ export default function Home() {
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3617395294405861"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></script>
       </Head>
 
@@ -71,6 +72,7 @@ export default function Home() {
         <nav
           className="w-full max-w-xs h-screen text-white p-4 border-r-2 border-white
           flex flex-col justify-between
+          overflow-y-auto
         "
         >
           <div className="">
