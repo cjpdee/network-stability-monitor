@@ -199,15 +199,6 @@ export default function Home() {
               </button>
             </div>
           </div>
-          <div className="">
-            {/* TODO: link to correct article */}
-            <a
-              href="/posts/how-to-improve-wifi-stability"
-              className={buttonStyle + " block text-center w-full"}
-            >
-              How to improve wifi stability
-            </a>
-          </div>
         </nav>
         <div
           ref={viewboxRef}
