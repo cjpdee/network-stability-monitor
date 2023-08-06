@@ -12,9 +12,9 @@
     "next": "latest",
     "ping.js": "^0.3.0",
     "prop-types": "^15.7.2",
-    "react": "^17.0.2",
+    "react": "^18.2.0",
     "react-chartjs-2": "^3.0.5",
-    "react-dom": "^17.0.2",
+    "react-dom": "^18.2.0",
     "react-ga": "^3.3.0",
     "react-range": "^1.8.11",
     "use-drag-scroll": "^1.0.1"
