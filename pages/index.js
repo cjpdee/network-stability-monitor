@@ -104,7 +104,7 @@ export default function Home() {
                   name="change"
                 />
               </label>
-              <label className={labelClass}>
+              {/* <label className={labelClass}>
                 Upload
                 <input
                   disabled
@@ -116,7 +116,7 @@ export default function Home() {
                   type="text"
                   name="change"
                 />
-              </label>
+              </label> */}
             </div>
             <h2 className="text-xl mb-2">Chart data</h2>
             <div className="flex mb-4">
@@ -144,7 +144,7 @@ export default function Home() {
               >
                 Download
               </button>
-              <button
+              {/* <button
                 className={
                   buttonStyle +
                   "w-1/3 mr-2 last:mr-0 " +
@@ -155,9 +155,9 @@ export default function Home() {
                 }}
               >
                 Upload
-              </button>
+              </button> */}
             </div>
-            <h2 className="text-xl mb-2">Up/Down format</h2>
+            <h2 className="text-xl mb-2">Download format</h2>
             <div className="flex mb-4">
               <button
                 className={

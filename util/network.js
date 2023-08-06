@@ -19,20 +19,20 @@ export const getPing = async () =>
   });
 
 export const getUpDown = async () => {
-  const up = await ns.checkUploadSpeed(
-    {
-      hostname: baseUrl,
-      path: path,
-      headers: {
-        "Referrer-Policy": "origin-when-cross-origin",
-      },
-    },
-    fileSizeInByes
-  );
+  // const up = await ns.checkUploadSpeed(
+  //   {
+  //     hostname: baseUrl,
+  //     path: path,
+  //     headers: {
+  //       "Referrer-Policy": "origin-when-cross-origin",
+  //     },
+  //   },
+  //   fileSizeInByes
+  // );
   const down = await ns.checkDownloadSpeed(baseUrl + path, fileSizeInByes);
 
   return {
-    up,
+    // up,
     down,
   };
 };

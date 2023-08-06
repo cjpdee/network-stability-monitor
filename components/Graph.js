@@ -35,9 +35,9 @@ export default function Graph({ dataType, format, networkData, dispatch }) {
             switch (dataType) {
               case "ping":
                 return datum.ping > 60 ? "red" : "green";
-              case "up":
-                return "green";
-                return datum.up[format] > 100 ? "red" : "green";
+              // case "up":
+              //   return "green";
+              //   return datum.up[format] > 100 ? "red" : "green";
               case "down":
                 return "green";
                 return datum.down[format] > 100 ? "red" : "green";
