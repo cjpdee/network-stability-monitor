@@ -3,7 +3,7 @@ import { useState, useReducer, useRef, useEffect } from "react";
 import { Range } from "react-range";
 import Graph from "../components/Graph";
 import useDragScroll from "use-drag-scroll";
-import ReactGA from "react-ga";
+// import ReactGA from "react-ga";
 
 /**
  * TODOs / Nice to have
@@ -35,15 +35,15 @@ export default function Home() {
     sliderRef: viewboxRef,
   });
 
-  useEffect(() => {
-    ReactGA.initialize(process.env.NEXT_PUBLIC_GA_CODE, {
-      debug: true,
-      gaOptions: {
-        siteSpeedSampleRate: 100,
-      },
-    });
-    ReactGA.pageview("/");
-  }, []);
+  // useEffect(() => {
+  //   ReactGA.initialize(process.env.NEXT_PUBLIC_GA_CODE, {
+  //     debug: true,
+  //     gaOptions: {
+  //       siteSpeedSampleRate: 100,
+  //     },
+  //   });
+  //   ReactGA.pageview("/");
+  // }, []);
 
   return (
     <div className="min-h-screen max-h-screen w-full overflow-hidden bg-black">
@@ -61,11 +61,11 @@ export default function Home() {
             }
         `}
         </style>
-        <script
+        {/* <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3617395294405861"
           crossOrigin="anonymous"
-        ></script>
+        ></script> */}
       </Head>
 
       <main className="max-h-screen h-screen w-auto flex">
