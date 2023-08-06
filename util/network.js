@@ -5,7 +5,8 @@ import dayjs from "dayjs";
 const p = new Ping();
 const ns = new NetworkSpeed();
 
-const baseUrl = "https://eu.httpbin.org/stream-bytes/500000";
+const baseUrl = "https://eu.httpbin.org";
+const path = "/stream-bytes/500000";
 const fileSizeInByes = 500000;
 
 export const getPing = async () =>
@@ -21,13 +22,14 @@ export const getUpDown = async () => {
   const up = await ns.checkUploadSpeed(
     {
       hostname: baseUrl,
+      path: path,
       headers: {
         "Referrer-Policy": "origin-when-cross-origin",
       },
     },
     fileSizeInByes
   );
-  const down = await ns.checkDownloadSpeed(baseUrl, fileSizeInByes);
+  const down = await ns.checkDownloadSpeed(baseUrl + path, fileSizeInByes);
 
   return {
     up,
